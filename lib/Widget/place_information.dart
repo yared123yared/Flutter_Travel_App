@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:travel_app/Widget/slider.dart';
 
 class PlaceInformation extends StatelessWidget {
@@ -103,7 +106,40 @@ class PlaceInformation extends StatelessWidget {
                 height: height * 0.068,
                 width: width*0.4,
                 child: RaisedButton(
-                  onPressed: () {},
+//                  onPressed: ()=>showModalBottomSheet(
+//                    shape: RoundedRectangleBorder(
+//                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+//                    ),
+//                    context: context,
+//                    builder: (context) => Container(
+//                      height: height*0.8,
+//                      child: Scaffold(
+//                        body: Text("Hello yared"),
+//                      ),
+//                    ),
+//                  ),
+                onPressed: ()=> showMaterialModalBottomSheet(
+                    context: context,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(40.0)),
+                    ),
+                    builder: (BuildContext context) {
+                      // return your layout
+                      return Container(
+                        height: height * 0.8,
+                        padding: EdgeInsets.all(height * 0.01),
+                        child:Column(
+                          children: [
+                            Row(
+                              children: [
+Text("X"),
+
+                              ],
+                            )
+                          ],
+                        ),
+                      );
+                    }),
 //                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                   color: Colors.blue,
                   shape: RoundedRectangleBorder(

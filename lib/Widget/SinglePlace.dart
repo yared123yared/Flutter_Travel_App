@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/yared/AndroidStudioProjects/travel_app/lib/Screen/place_detail.dart';
+
+import 'package:page_transition/page_transition.dart';
+import 'package:travel_app/Screen/place_detail.dart';
 
 class SinglePlace extends StatelessWidget {
   final String id;
@@ -139,9 +141,11 @@ class SinglePlace extends StatelessWidget {
   }
 
   void selectMeal(BuildContext context){
-    Navigator.of(context).pushNamed(PlaceDetail.routeName,
-        arguments: this.id
-    );
+//    Navigator.of(context).pushNamed(PlaceDetail.routeName,
+//        arguments: this.id
+//    );
+
+    Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft,duration: Duration(milliseconds: 500),child: PlaceDetail(id: this.id,)));
 
   }
 }
