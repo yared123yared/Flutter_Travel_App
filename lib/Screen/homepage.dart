@@ -75,6 +75,7 @@ class HomePage extends StatelessWidget {
   SizedBox(height:height * 0.01),
              SingleChildScrollView(
                scrollDirection: Axis.horizontal,
+
                child: Row(
                  children: <Widget>[
                    Container(
@@ -86,6 +87,7 @@ class HomePage extends StatelessWidget {
                            text2: DUMMY_PLACES[0].text2
                        )
                    ),
+
 
                    Container(
                        alignment: Alignment.topLeft,
@@ -149,20 +151,20 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(100)),
-                  child: Icon(Icons.home,color: Colors.white,)
+                  child: Icon(Icons.home,color: Colors.white,size: height/width * 13,)
               ),
             ),
             BottomNavigationBarItem(
               title: Text('Music'),
-              icon: Icon(Icons.search,color: Colors.black,),
+              icon: Icon(Icons.search,color: Colors.black,size: height/width * 13),
             ),
             BottomNavigationBarItem(
               title: Text('Places'),
-              icon: Icon(Icons.save,color: Colors.black,),
+              icon: Icon(Icons.save,color: Colors.black,size: height/width * 13),
             ),
             BottomNavigationBarItem(
               title: Text('News'),
-              icon: Icon(Icons.library_books, color: Colors.black,),
+              icon: Icon(Icons.library_books, color: Colors.black,size: height/width * 13),
             ),
           ],
         )

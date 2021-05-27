@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:travel_app/Screen/place_detail.dart';
 
+import 'star_icon.dart';
+
 class SinglePlace extends StatelessWidget {
   final String id;
   final String text1;
@@ -29,7 +31,7 @@ class SinglePlace extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         elevation: 6,
-//        margin: EdgeInsets.all(10),
+        margin: EdgeInsets.all(10),
         child: Column(
           children: [
             Stack(
@@ -45,7 +47,7 @@ class SinglePlace extends StatelessWidget {
                   ),
                   child: Image.asset(
                     'assets/images/${this.imageUrl}',
-                    height: height * 0.35,
+                    height: height * 0.38,
                     width: width * 0.7,
 //                    height: 350,
 //                    width: 280,
@@ -66,7 +68,7 @@ class SinglePlace extends StatelessWidget {
                         icon: Icon(
                           Icons.save,
                           color: Colors.blue,
-                          size: 24,
+                          size: height/width * 13,
                         ),
                       ),
                     )),
@@ -82,47 +84,35 @@ class SinglePlace extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            Icon(
-                              Icons.star_half,
-                              color: Colors.amber,
-                            ),
+                            StarIcon(iconData: Icons.star),
+                            StarIcon(iconData: Icons.star),
+                            StarIcon(iconData: Icons.star),
+                            StarIcon(iconData: Icons.star),
+                            StarIcon(iconData: Icons.star_half),
+
+
                           ],
                         ),
                         SizedBox(
-                          height: 10,
+//                          height: 10,
+                        height: height * 0.02,
                         ),
                         Text(
                           this.text1,
                           style: TextStyle(
-                            fontSize: 26,
+                            fontSize:height/width * 12,
                             color: Colors.white,
                           ),
                           softWrap: true,
                           overflow: TextOverflow.fade,
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
+//                        SizedBox(
+//                          height: height * 0.00005,
+//                        ),
                         Text(
                           this.text2,
                           style: TextStyle(
-                            fontSize: 26,
+                            fontSize:height/width * 12,
                             color: Colors.white,
                           ),
                           softWrap: true,
@@ -139,6 +129,8 @@ class SinglePlace extends StatelessWidget {
       ),
     );
   }
+
+
 
   void selectMeal(BuildContext context){
 //    Navigator.of(context).pushNamed(PlaceDetail.routeName,

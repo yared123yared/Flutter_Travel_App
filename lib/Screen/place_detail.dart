@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app/DUMMY_PLACES.dart';
 import 'package:travel_app/Widget/place_information.dart';
+import 'package:travel_app/Widget/star_icon.dart';
 
 class PlaceDetail extends StatelessWidget {
   static const routeName='/place-detail';
@@ -76,10 +77,10 @@ PlaceDetail({@required this.id});
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
-                          icon: Icon(Icons.arrow_back_outlined, color: Colors.white,size: 40,),
+                          icon: Icon(Icons.arrow_back_outlined, color: Colors.white, size: height/width * 13,),
                         ),
                         IconButton(
-                          icon: Icon(Icons.ios_share, color: Colors.white,size: 40,),
+                          icon: Icon(Icons.ios_share, color: Colors.white,size: height/width * 13,),
                         )
                       ],
                     ),
@@ -98,26 +99,13 @@ PlaceDetail({@required this.id});
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              Icon(
-                                Icons.star_half,
-                                color: Colors.amber,
-                              ),
+
+                              StarIcon(iconData: Icons.star),
+                              StarIcon(iconData: Icons.star),
+                              StarIcon(iconData: Icons.star),
+                              StarIcon(iconData: Icons.star),
+                              StarIcon(iconData: Icons.star_half),
+
                               SizedBox(
                                 width: 5,
                               ),
@@ -186,7 +174,7 @@ PlaceDetail({@required this.id});
                       icon: Icon(
                         Icons.save,
                         color: Colors.blue,
-                        size: 24,
+                        size: height/width * 14,
                       ),
                     ),
                   )),
