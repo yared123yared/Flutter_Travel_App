@@ -47,7 +47,7 @@ class SinglePlace extends StatelessWidget {
                   ),
                   child: Image.asset(
                     'assets/images/${this.imageUrl}',
-                    height: height * 0.38,
+                    height: height * 0.36,
                     width: width * 0.7,
 //                    height: 350,
 //                    width: 280,

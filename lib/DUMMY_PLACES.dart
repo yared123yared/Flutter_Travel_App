@@ -5,6 +5,12 @@ const DUMMY_PLACES = const [
     id: '1',
     text1: "Lighthouse",
     text2: "excursions",
+    imageUrl: 'image0.jpg',
+  ),
+  Place(
+    id: '1',
+    text1: "Explore",
+    text2: "Sunsets",
       imageUrl: 'image1.jpg',
   ),
   Place(

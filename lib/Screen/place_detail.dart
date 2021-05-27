@@ -162,7 +162,7 @@ PlaceDetail({@required this.id});
           ],
         ),
               Positioned(
-                  top: height * 0.55,
+                  top: height * 0.54,
                   right: width * 0.07,
                   child: Container(
                     height: height * 0.065,

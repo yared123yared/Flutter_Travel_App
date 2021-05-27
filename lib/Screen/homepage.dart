@@ -15,7 +15,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
 
       body: Container(
-        margin: EdgeInsets.symmetric(
+        height: height,
+        padding: EdgeInsets.symmetric(
             vertical: height * 0.07,
             horizontal: width * 0.04),
         child: SingleChildScrollView(

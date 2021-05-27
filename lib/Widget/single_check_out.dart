@@ -36,7 +36,7 @@ class SingleCheckOut extends StatelessWidget {
                   color:Colors.blue
               ): Icon(
                 Icons.circle,
-                color: Colors.white,
+                color: Colors.white10,
               )
             ),
           ),

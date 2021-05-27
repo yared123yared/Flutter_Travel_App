@@ -2,8 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
 import 'package:travel_app/Widget/single_check_out.dart';
 import 'package:travel_app/Widget/slider.dart';
+
+import '../styles.dart';
+import 'add_button.dart';
+
+import 'custom_rect_tween.dart';
+import 'hero_dailog_route.dart';
+
+const String _heroAddTodo = 'add-todo-hero';
 
 class PlaceInformation extends StatelessWidget {
   @override
@@ -13,7 +22,7 @@ class PlaceInformation extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(width * 0.1),
       width: width,
-      height: height * 0.41,
+      height: height * 0.42,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -134,98 +143,149 @@ class PlaceInformation extends StatelessWidget {
                           // return your layout
                           return Container(
                             height: height * 0.8,
+                            width: 50,
                             padding: EdgeInsets.all(height * 0.02),
                             child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
-
                               child: Column(
                                 children: [
                                   Container(
                                     child: Column(
-
                                       children: [
                                         Row(
-                                          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
-
                                             IconButton(
                                               icon: Icon(
                                                 Icons.cancel,
                                                 color: Colors.black,
-                                                size: height/width * 13,
+                                                size: height / width * 13,
+                                              ),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                            Text(
+                                              "Booking",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: height / width * 7,
                                               ),
                                             ),
-                                            Text("Booking",style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: height / width * 7,
-                                            ),),
-                                            Text("Done", style: TextStyle(
-                                              color: Colors.blue,
-                                              fontSize: height / width * 7,
-                                            ),)
+                                            Text(
+                                              "Done",
+                                              style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: height / width * 7,
+                                              ),
+                                            )
                                           ],
                                         ),
-                                        SizedBox(height: 10,),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
                                         SingleChildScrollView(
                                           scrollDirection: Axis.horizontal,
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
-                                              this.getContainer(context, 'Su', '21', false),
-                                              this.getContainer(context, 'Mo', '22', false),
-                                              this.getContainer(context, 'Tu', '23', false),
-                                              this.getContainer(context, 'Wd', '24', true),
-                                              this.getContainer(context, 'Tr', '25', false),
-                                              this.getContainer(context, 'Fr', '26', false),
-                                              this.getContainer(context, 'Sa', '27', false),
+                                              this.getContainer(
+                                                  context, 'Su', '21', false),
+                                              this.getContainer(
+                                                  context, 'Mo', '22', false),
+                                              this.getContainer(
+                                                  context, 'Tu', '23', false),
+                                              this.getContainer(
+                                                  context, 'Wd', '24', true),
+                                              this.getContainer(
+                                                  context, 'Tr', '25', false),
+                                              this.getContainer(
+                                                  context, 'Fr', '26', false),
+                                              this.getContainer(
+                                                  context, 'Sa', '27', false),
                                             ],
                                           ),
-
                                         ),
-                                        SizedBox(height: 10,),
-
+                                        SizedBox(
+                                          height: 10,
+                                        ),
                                         Divider(
                                           height: 6,
                                           endIndent: 0.0,
                                           indent: 6.0,
                                           thickness: 1.0,
-
                                         ),
-
                                       ],
                                     ),
                                   ),
-
-
                                   Container(
-
-
-
-                                    child: Column(
-
-                                      children: [
-                                        SingleCheckOut(
-                                          beginTime: "10:00",
-                                          endTime: "14:00",
-                                          status: "last spot remaining",
-                                        ),
-
-                                        Container(
-                                          alignment: Alignment.bottomCenter,
-                                          child: RaisedButton(
-                                            color: Colors.blue,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(30)),
-                                            child: Text(
-                                              "Checkout",
-                                              style: TextStyle(color: Colors.white),
-                                            ),
+                                    height: height * 0.5,
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        children: [
+                                          SingleCheckOut(
+                                            beginTime: "10:00",
+                                            endTime: "14:00",
+                                            status: "last spot remaining",
+                                            isChecked: true,
                                           ),
-                                        )
-                                      ],
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          SingleCheckOut(
+                                            beginTime: "12:00",
+                                            endTime: "16:00",
+                                            status: "Available",
+                                            isChecked: false,
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          SingleCheckOut(
+                                            beginTime: "14:00",
+                                            endTime: "18:00",
+                                            status: "Available",
+                                            isChecked: false,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
+                                  Container(
+                                    height: height * 0.068,
+                                    width: width * 0.4,
 
+//                                          alignment: Alignment.bottomCenter,
+                                    child: RaisedButton(
+                                        color: Colors.blue,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30)),
+//                                        child: Text(
+//                                          "Checkout",
+//                                          style: TextStyle(color: Colors.white),
+//                                        ),
+                                        child: Hero(
+                                          tag: _heroAddTodo,
+                                          createRectTween: (begin, end) {
+                                            return CustomRectTween(
+                                                begin: begin, end: end);
+                                          },
+                                          child:Text("Checkout",style: TextStyle(color: Colors.white),),
+
+                                        ),
+                                        onPressed: () => {
+                                              Navigator.pop(context),
+                                          Navigator.pop(context),
+                                              Navigator.of(context).push(
+                                                  HeroDialogRoute(
+                                                      builder: (context) {
+                                                return AddTodoPopupCard();
+                                              }))
+                                            }),
+                                  )
                                 ],
                               ),
                             ),
@@ -248,13 +308,15 @@ class PlaceInformation extends StatelessWidget {
       ),
     );
   }
-  Widget getContainer(BuildContext context, String upperText, String lowerText, bool background){
+
+  Widget getContainer(BuildContext context, String upperText, String lowerText,
+      bool background) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
       width: width * 0.13,
-      height:width * 0.16,
-      padding: EdgeInsets.symmetric(vertical: 9,horizontal: 5),
+      height: width * 0.16,
+      padding: EdgeInsets.symmetric(vertical: 9, horizontal: 5),
       decoration: BoxDecoration(
         color: background ? Colors.blue : Colors.white,
         borderRadius: BorderRadius.only(
@@ -266,18 +328,25 @@ class PlaceInformation extends StatelessWidget {
           ),
         ),
       ),
-
       child: Column(
         children: [
-          Text(upperText, style: TextStyle(
-            color: background ? Colors.white : Colors.black,
-            fontWeight: FontWeight.w200,
-          ),),
-          SizedBox(height: 3,),
-          Text(lowerText,style: TextStyle(
-            color: background ? Colors.white : Colors.black,
-            fontWeight: FontWeight.bold,
-          ),)
+          Text(
+            upperText,
+            style: TextStyle(
+              color: background ? Colors.white : Colors.black,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
+          SizedBox(
+            height: 3,
+          ),
+          Text(
+            lowerText,
+            style: TextStyle(
+              color: background ? Colors.white : Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          )
         ],
       ),
     );
