@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'package:travel_app/Widget/single_check_out.dart';
 import 'package:travel_app/Widget/slider.dart';
@@ -271,14 +272,21 @@ class PlaceInformation extends StatelessWidget {
                                           tag: _heroAddTodo,
                                           createRectTween: (begin, end) {
                                             return CustomRectTween(
-                                                begin: begin, end: end);
+                                                begin: begin, end: end, cubic: Cubic(0.165, 0.84, 0.44, 1.0));
                                           },
-                                          child:Text("Checkout",style: TextStyle(color: Colors.white),),
-
+                                          child: Text(
+                                            "Checkout",
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
                                         ),
                                         onPressed: () => {
                                               Navigator.pop(context),
-                                          Navigator.pop(context),
+                                              Navigator.pop(context),
+//                          Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop,duration: Duration(milliseconds: 500),child: AddTodoPopupCard()))
+
+
+
                                               Navigator.of(context).push(
                                                   HeroDialogRoute(
                                                       builder: (context) {
